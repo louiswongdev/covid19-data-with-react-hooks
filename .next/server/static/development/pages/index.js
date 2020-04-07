@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -126,21 +126,21 @@ function CountrySelector() {
   if (!countries) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 10
     },
     __self: this
   }, "Loading...");
-  console.log(countries);
+  const countriesArray = countries.countries.map(country => country.name);
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 15
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 16
     },
     __self: this
   }, "Currently showing ", selectedCountry), __jsx("select", {
@@ -150,23 +150,22 @@ function CountrySelector() {
     value: selectedCountry,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: this
-  }, Object.entries(countries.countries).map(([country, code]) => __jsx("option", {
-    // selected={selectedCountry === countries.iso3[code]}
-    key: code,
-    value: countries.iso3[code],
+  }, countriesArray.map((country, i) => __jsx("option", {
+    key: i,
+    value: country,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 24
     },
     __self: this
   }, country))), __jsx(_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 29
     },
     __self: this
   }));
@@ -382,7 +381,7 @@ function useStats(url) {
     1: setError
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    console.log("Mounting or updating");
+    console.log('Mounting or updating');
 
     async function fetchData() {
       setLoading(true);
@@ -406,7 +405,7 @@ function useStats(url) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
